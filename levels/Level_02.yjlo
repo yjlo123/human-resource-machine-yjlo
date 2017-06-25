@@ -1,0 +1,40 @@
+import HRMLevel from "human-resource-machine-yjlo";
+import HeapList;
+import Math;
+
+class Level02 extends HRMLevel {
+	/*
+	Year 2 - Busy Mail Room
+	
+	Objective:
+	Grab each thing from the INBOX, and drop each
+	one into the OUTBOX.
+	*/
+	
+	func IN() {
+		strings := ["AUTOEXEC", "LOADPROGRAM", "INITIALIZE"];
+		list := HeapList();
+		r := Math.rand($now());
+		list.init(strings);
+		return $string_to_char_list(list.get(r.next() * 1000 % 3));
+	}
+	
+	func OUT() {
+		return inList;
+	}
+	
+	func ALLOWED() {
+		return ["inbox", "outbox", "jump"];
+	}
+}
+
+var answer =
+`
+a:
+inbox
+outbox
+jump a
+`;
+
+level := Level02();
+level.run(answer);
