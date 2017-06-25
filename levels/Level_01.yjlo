@@ -1,0 +1,42 @@
+import HRMLevel from "human-resource-machine-yjlo";
+import Math;
+
+class Level01 extends HRMLevel {
+	/*
+	Year 1 - Mail Room
+	
+	Objective:
+	Your program should tell your worker to grab each
+	thing from the INBOX, and drop it into the OUTBOX.
+	*/
+	
+	func IN() {
+		var inList = [];
+		var r = Math.rand($now());
+		for i in 0..<3 {
+			inList = $pair(r.next() * 1000 % 9, inList);
+		}
+		return inList;
+	}
+	
+	func OUT() {
+		return inList;
+	}
+	
+	func ALLOWED() {
+		return ["inbox", "outbox"];
+	}
+}
+
+var answer =
+`
+inbox
+outbox
+inbox
+outbox
+inbox
+outbox
+`;
+
+level := Level01();
+level.run(answer);
