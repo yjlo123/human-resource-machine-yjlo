@@ -1,0 +1,45 @@
+import HRM from "human-resource-machine-yjlo";
+import ListUtil;
+
+class HRMLevel {
+	var inList;
+	
+	func IN() {
+		return [];
+	}
+	
+	func OUT() {
+		return [];
+	}
+	
+	func ALLOWED() {
+		return [];
+	}
+	
+	class Accumulator {
+		var list = [];
+		func add(v) {
+			list = $pair(v, list);
+		}
+		func getList() {
+			return ListUtil.reverse(list);
+		}
+	}
+	
+	func EXE(source) {
+		inList = IN();
+		acc := Accumulator();
+		hrm := HRM();
+		hrm.parse(source, ALLOWED());
+		hrm.run(inList, acc.add);
+		return acc.getList();
+	}
+	
+	func run(source) {
+		aout := EXE(source);
+		print("[  IN  ]", inList);
+		print("[ EOUT ]", OUT());
+		print("[ AOUT ]", aout);
+		print("[RESULT]", ListUtil.equal(OUT(), aout) ? "PASS" : "FAIL");
+	}
+}

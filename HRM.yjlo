@@ -1,0 +1,109 @@
+import HRMParser from "human-resource-machine-yjlo";
+import HeapList;
+import ListUtil;
+import HashMap;
+
+class HRM {
+	class _Command {
+		var type;
+		var name = "";
+		@(t) {
+			type = t;
+		}
+		
+		func toString() {
+			return type + (name?(" "+name):"");
+		}
+	}
+	
+	var commands = HeapList();
+	var cl = []; // command list
+	var map = HashMap(); // label map
+	var pc = 1; // program counter
+	
+	var current = null;
+	
+	/* ========== Command functions ========== */
+	func inbox() {
+		cl = $pair(_Command("inbox"), cl);
+		pc++;
+	}
+	
+	func outbox() {
+		cl = $pair(_Command("outbox"), cl);
+		pc++;
+	}
+	
+	func label(name) {
+		var cmd = _Command("label");
+		cmd.name = name;
+		cl = $pair(cmd, cl);
+		map.put(name, pc++);
+	}
+	
+	func jump(name) {
+		var cmd = _Command("jump");
+		cmd.name = name;
+		cl = $pair(cmd, cl);
+		pc++;
+	}
+	
+	/* ------- End of Command functions ------- */
+	
+	func parse(source, allowed) {
+		P := HRMParser(source);
+		lines := P.parse();
+
+		while !$is_empty(lines) {
+			var line = $head(lines);
+			var cmd = line.pull().val();
+
+			if !line.isEmpty() && line.peek().val() == ":" {
+				label(cmd);
+				lines = $tail(lines);
+				continue;
+			}
+
+			if ListUtil.index(allowed, cmd) == -1 {
+				throw("Invalid command: " + cmd);
+			}
+			
+			switch cmd {
+				case "inbox" :
+					inbox();
+				case "outbox" :
+					outbox();
+				case "jump" :
+					jump(line.peek().val());
+			}
+			lines = $tail(lines);
+		}
+	}
+	
+	func run(in_list, out_fun) {
+		var i = 0; // program counter
+		cl = ListUtil.reverse(cl);
+		//print(cl);
+		commands.init(cl);
+		
+		while i < commands.size() {
+			var current_cmd = commands.get(i);
+			switch current_cmd.type {
+				case "inbox" :
+					if $is_empty(in_list) {
+						// all inputs are processed
+						return;
+					}
+					current = $head(in_list);
+					in_list = $tail(in_list);
+				case "outbox" :
+					out_fun(current);
+				case "jump" :
+					var label_i = map.get(current_cmd.name);
+					if label_i == null { throw("["+(i+1)+"] Invalid jump label"); }
+					i = label_i - 1;
+			}
+			i++;
+		}
+	}
+}
