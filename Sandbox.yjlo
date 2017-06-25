@@ -1,0 +1,27 @@
+import HRMLevel from "human-resource-machine-yjlo";
+
+class Sandbox extends HRMLevel {
+
+	func IN() {
+		return [1,2,3];
+	}
+	
+	func OUT() {
+		return inList;
+	}
+	
+	func ALLOWED() {
+		return ["inbox", "outbox", "jump"];
+	}
+}
+
+var program =
+`
+a:
+inbox
+outbox
+jump a
+`;
+
+sanbox := Sandbox();
+sanbox.run(program);
