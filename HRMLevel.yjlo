@@ -8,6 +8,10 @@ class HRMLevel {
 		return [];
 	}
 	
+	func FLOOR() {
+		return null;
+	}
+	
 	func OUT() {
 		return [];
 	}
@@ -31,6 +35,7 @@ class HRMLevel {
 		acc := Accumulator();
 		hrm := HRM();
 		hrm.parse(source, ALLOWED());
+		hrm.initFloor(FLOOR());
 		hrm.run(inList, acc.add);
 		return acc.getList();
 	}
