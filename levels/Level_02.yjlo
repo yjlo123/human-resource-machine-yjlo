@@ -24,7 +24,7 @@ class Level02 extends HRMLevel {
 	}
 	
 	func ALLOWED() {
-		return ["inbox", "outbox", "jump"];
+		return ["inbox","outbox","jump"];
 	}
 }
 
