@@ -6,12 +6,18 @@ class Sandbox extends HRMLevel {
 		return [1,2,3];
 	}
 	
+	func FLOOR() {
+		floor := HeapList();
+		return floor;
+	}
+	
 	func OUT() {
 		return inList;
 	}
 	
 	func ALLOWED() {
-		return ["inbox", "outbox", "jump"];
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","jump","jumpz"];
 	}
 }
 
