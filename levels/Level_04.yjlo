@@ -1,0 +1,47 @@
+import HRMLevel from "human-resource-machine-yjlo";
+import HeapList;
+
+class Level04 extends HRMLevel {
+	/*
+	Year 4 - Scrambler Handler
+	
+	Objective:
+	Grab the first TWO things from the INBOX and drop them
+	into the OUTBOX in the reverse order. Repeat until the
+	INBOX is empty.
+	*/
+	
+	func IN() {
+		return [4,6,'E','Q',3,5];
+	}
+	
+	func FLOOR() {
+		floor := HeapList();
+		floor.put(2, null);
+		return floor;
+	}
+	
+	func OUT() {
+		return [6,4,'Q','E',5,3];
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto"
+				,"jump"];
+	}
+}
+
+var answer =
+`
+a:
+inbox
+copyto 0
+inbox
+outbox
+copyfrom 0
+outbox
+jump a
+`;
+
+level := Level04();
+level.run(answer);
