@@ -1,0 +1,42 @@
+import HRMLevel from "human-resource-machine-yjlo";
+import HeapList;
+
+class Level07 extends HRMLevel {
+	/*
+	Year 7 - Zero Exterminator
+	
+	Objective:
+	Send all things that are not zero to the OUTBOX.
+	*/
+	
+	func IN() {
+		return [8,0,1,'B',0,0,7,0];
+	}
+	
+	func FLOOR() {
+		floor := HeapList();
+		floor.put(8, null);
+		return floor;
+	}
+	
+	func OUT() {
+		return [8,1,'B',7];
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","jump","jumpz"];
+	}
+}
+
+var answer =
+`
+a:
+inbox
+jumpz a
+outbox
+jump a
+`;
+
+level := Level07();
+level.run(answer);
