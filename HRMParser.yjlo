@@ -1,99 +1,97 @@
-import ListUtil;
+import ListUtil
 
 class Token {
-	var _value;
+	var _value
 	@(v) {
-		_value = v;
+		_value = v
 	}
 	func val() {
-		return _value;
+		return _value
 	}
 	func toString() {
-		return _value;
+		return _value
 	}
 }
 
 class HRMParser {
 	class _Line {
-		var tokens = [];
+		var tokens = []
 		@(inversed_l) {
-			while !$is_empty(inversed_l) {
-				tokens = $pair($head(inversed_l), tokens);
-				inversed_l = $tail(inversed_l);
+			for t in inversed_l {
+				tokens = $pair(t, tokens)
 			}
 		}
 		func peek() {
-			return $head(tokens);
+			return $head(tokens)
 		}
 		func pull() {
-			var token = $head(tokens);
-			tokens = $tail(tokens);
-			return token;
+			var token = $head(tokens)
+			tokens = $tail(tokens)
+			return token
 		}
 		func isEmpty() {
-			return $is_empty(tokens);
+			return $is_empty(tokens)
 		}
 		func toString() {
-			var str = "{";
-			var ts = tokens;
-			while !$is_empty(ts) {
-				str += ($head(ts).toString() + " ");
-				ts = $tail(ts);
+			var str = "{"
+			var ts = tokens
+			for t in ts {
+				str += (t.toString() + " ")
 			}
-			str += "}";
-			return str;
+			str += "}"
+			return str
 		}
 	}
 	
-	var lines = [];
-	var source;
+	var lines = []
+	var source
 	
 	@(s) {
-		source = s;
+		source = s
 	}
 	
 	func parse() {
-		cl := $string_to_char_list(source); // char list
+		cl := $string_to_char_list(source) // char list
 		while !$is_empty(cl) && ($head(cl) == ' ' || $head(cl) == '\n') {
-			cl = $tail(cl);
+			cl = $tail(cl)
 		}
-		var word = "";
-		var word_l = [];
-		var line;
+		var word = ""
+		var word_l = []
+		var line
 		func addWord() {
-			if word == "" { return; }
-			word_l = $pair(Token(word), word_l);
-			word = "";
+			if word == "" { return }
+			word_l = $pair(Token(word), word_l)
+			word = ""
 		}
 		func addLine() {
-			if $is_empty(word_l) { return; }
-			line = _Line(word_l);
-			lines = $pair(line, lines);
-			word_l = [];
+			if $is_empty(word_l) { return }
+			line = _Line(word_l)
+			lines = $pair(line, lines)
+			word_l = []
 		}
 		
 		while !$is_empty(cl) {
 			while !$is_empty(cl) {
 				switch $head(cl) {
 					case ' ' :
-						addWord();
+						addWord()
 					case ':' :
-						addWord();
-						word = ':';
-						addWord();
+						addWord()
+						word = ':'
+						addWord()
 					case '\n' :
-						addWord();
-						addLine();
+						addWord()
+						addLine()
 					default:
-						word += $head(cl);
+						word += $head(cl)
 				}
-				cl = $tail(cl);
+				cl = $tail(cl)
 			}
 			if word != "" {
-				addWord();
-				addLine();
+				addWord()
+				addLine()
 			}
 		}
-		return ListUtil.reverse(lines);
+		return ListUtil.reverse(lines)
 	}
 }

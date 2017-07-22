@@ -1,138 +1,138 @@
-import HRMParser from "human-resource-machine-yjlo";
-import HeapList;
-import ListUtil;
-import HashMap;
-import Util;
+import HRMParser from "human-resource-machine-yjlo"
+import HeapList
+import ListUtil
+import HashMap
+import Util
 
 class HRM {
 	class _Command {
-		var type;
-		var value;
+		var type
+		var value
 		@(t) {
-			type = t;
+			type = t
 		}
 		
 		func toString() {
-			return type + (value?(" "+value):"");
+			return type + (value?(" "+value):"")
 		}
 	}
 	
-	var commands; // HeapList
-	var cl = []; // command list
-	var map = HashMap(); // label map
-	var floor; // array
-	var pc = 1; // program counter
+	var commands // HeapList
+	var cl = [] // command list
+	var map = HashMap() // label map
+	var floor // array
+	var pc = 1 // program counter
 	
-	var current = null;
+	var current = null
 	
 	/* ========== Command functions ========== */
 	func addCommand(command_name, value) {
-		var cmd = _Command(command_name);
+		var cmd = _Command(command_name)
 		if value != null {
-			cmd.value = value;
+			cmd.value = value
 		}
-		cl = $pair(cmd, cl);
-		pc++;
+		cl = $pair(cmd, cl)
+		pc++
 	}
 	
 	func label(name) {
-		var cmd = _Command("label");
-		cmd.value = name;
-		cl = $pair(cmd, cl);
-		map.put(name, pc);
-		pc++;
+		var cmd = _Command("label")
+		cmd.value = name
+		cl = $pair(cmd, cl)
+		map.put(name, pc)
+		pc++
 	}
 	
 	/* ------- End of Command functions ------- */
 	
 	func parse(source, allowed) {
-		P := HRMParser(source);
-		lines := P.parse();
+		P := HRMParser(source)
+		lines := P.parse()
 
 		while !$is_empty(lines) {
-			var line = $head(lines);
-			var cmd = line.pull().val();
+			var line = $head(lines)
+			var cmd = line.pull().val()
 
 			if !line.isEmpty() && line.peek().val() == ":" {
-				label(cmd);
-				lines = $tail(lines);
-				continue;
+				label(cmd)
+				lines = $tail(lines)
+				continue
 			}
 
 			if ListUtil.index(allowed, cmd) == -1 {
-				throw("Invalid command: " + cmd);
+				throw("Invalid command: " + cmd)
 			}
 			switch cmd {
 				case "inbox" :
-					addCommand(cmd);
+					addCommand(cmd)
 				case "outbox" :
-					addCommand(cmd);
+					addCommand(cmd)
 				case "jump" :
-					addCommand(cmd, line.peek().val());
+					addCommand(cmd, line.peek().val())
 				case "jumpz" :
-					addCommand(cmd, line.peek().val());
+					addCommand(cmd, line.peek().val())
 				case "copyfrom" :
-					addCommand(cmd, Util.atoi(line.peek().val()));
+					addCommand(cmd, Util.atoi(line.peek().val()))
 				case "copyto" :
-					addCommand(cmd, Util.atoi(line.peek().val()));
+					addCommand(cmd, Util.atoi(line.peek().val()))
 				case "add" :
-					addCommand(cmd, Util.atoi(line.peek().val()));
+					addCommand(cmd, Util.atoi(line.peek().val()))
 				default :
-					throw("Invalid command: " + cmd);
+					throw("Invalid command: " + cmd)
 			}
-			lines = $tail(lines);
+			lines = $tail(lines)
 		}
 	}
 	
 	func initFloor(list) {
-		floor = list;
+		floor = list
 	}
 	
 	func run(in_list, out_fun) {
-		var i = 0; // program counter
-		cl = ListUtil.reverse(cl);
-		commands = HeapList(cl);
+		var i = 0 // program counter
+		cl = ListUtil.reverse(cl)
+		commands = HeapList(cl)
 
 		while i < commands.size() {
-			var current_cmd = commands.get(i);
+			var current_cmd = commands.get(i)
 			switch current_cmd.type {
 				case "inbox" :
 					if $is_empty(in_list) {
 						// all inputs are processed
-						return;
+						return
 					}
-					current = $head(in_list);
-					in_list = $tail(in_list);
+					current = $head(in_list)
+					in_list = $tail(in_list)
 				case "outbox" :
-					out_fun(current);
+					out_fun(current)
 				case "jump" :
-					var label_i = map.get(current_cmd.value);
+					var label_i = map.get(current_cmd.value)
 					if label_i == null {
 						throw("[" + (i+1) + "] Invalid jump label: "
-							+ current_cmd.value);
+							+ current_cmd.value)
 					}
-					i = label_i - 1;
+					i = label_i - 1
 				case "jumpz" :
 					if current == 0 {
-						var label_i = map.get(current_cmd.value);
+						var label_i = map.get(current_cmd.value)
 						if label_i == null {
 							throw("["+(i+1)+"] Invalid jump label"
-								+ current_cmd.value);
+								+ current_cmd.value)
 						}
-						i = label_i - 1;
+						i = label_i - 1
 					}
 				case "copyfrom" :
-					current = floor.get(current_cmd.value);
+					current = floor.get(current_cmd.value)
 				case "copyto" :
 					if current_cmd.value >= floor.size() {
 						throw("["+(i+1)+"] Invalid floor number: "
-							+ current_cmd.value);
+							+ current_cmd.value)
 					}
-					floor.put(current_cmd.value, current);
+					floor.put(current_cmd.value, current)
 				case "add" :
-					current += floor.get(current_cmd.value);
+					current += floor.get(current_cmd.value)
 			}
-			i++;
+			i++
 		}
 	}
 }
