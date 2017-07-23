@@ -1,6 +1,6 @@
-import HRMLevel from "human-resource-machine-yjlo";
-import HeapList;
-import Math;
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+import Math
 
 class Level02 extends HRMLevel {
 	/*
@@ -12,19 +12,19 @@ class Level02 extends HRMLevel {
 	*/
 	
 	func IN() {
-		strings := ["AUTOEXEC", "LOADPROGRAM", "INITIALIZE"];
-		list := HeapList();
-		r := Math.rand($now());
-		list.init(strings);
-		return $string_to_char_list(list.get(r.next() * 1000 % 3));
+		strings := ["AUTOEXEC", "LOADPROGRAM", "INITIALIZE"]
+		list := HeapList()
+		r := Math.rand($now())
+		list.init(strings)
+		return $string_to_char_list(list.get(r.next() * 1000 % 3))
 	}
 	
 	func OUT() {
-		return inList;
+		return inList
 	}
 	
 	func ALLOWED() {
-		return ["inbox","outbox","jump"];
+		return ["inbox","outbox","jump"]
 	}
 }
 
@@ -34,7 +34,7 @@ a:
 inbox
 outbox
 jump a
-`;
+`
 
-level := Level02();
-level.run(answer);
+level := Level02()
+level.run(answer)

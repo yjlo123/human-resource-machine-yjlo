@@ -1,5 +1,5 @@
-import HRMLevel from "human-resource-machine-yjlo";
-import Math;
+import HRMLevel from "human-resource-machine-yjlo"
+import Math
 
 class Level01 extends HRMLevel {
 	/*
@@ -11,20 +11,20 @@ class Level01 extends HRMLevel {
 	*/
 	
 	func IN() {
-		var inList = [];
-		var r = Math.rand($now());
+		var inList = []
+		var r = Math.rand($now())
 		for i in 0..<3 {
-			inList = $pair(r.next() * 1000 % 9, inList);
+			inList = $pair(r.next() * 1000 % 9, inList)
 		}
-		return inList;
+		return inList
 	}
 	
 	func OUT() {
-		return inList;
+		return inList
 	}
 	
 	func ALLOWED() {
-		return ["inbox","outbox"];
+		return ["inbox","outbox"]
 	}
 }
 
@@ -36,7 +36,7 @@ inbox
 outbox
 inbox
 outbox
-`;
+`
 
-level := Level01();
-level.run(answer);
+level := Level01()
+level.run(answer)

@@ -1,5 +1,5 @@
-import HRMLevel from "human-resource-machine-yjlo";
-import HeapList;
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
 
 class Level06 extends HRMLevel {
 	/*
@@ -11,22 +11,22 @@ class Level06 extends HRMLevel {
 	*/
 	
 	func IN() {
-		return [0,8,1,3,-1,1,2,-8];
+		return [0,8,1,3,-1,1,2,-8]
 	}
 	
 	func FLOOR() {
-		floor := HeapList();
-		floor.put(2, null);
-		return floor;
+		floor := HeapList()
+		floor.put(2, null)
+		return floor
 	}
 	
 	func OUT() {
-		return [8,4,0,-6];
+		return [8,4,0,-6]
 	}
 	
 	func ALLOWED() {
 		return ["inbox","outbox","copyfrom","copyto",
-				"add","jump"];
+				"add","jump"]
 	}
 }
 
@@ -39,7 +39,7 @@ inbox
 add 0
 outbox
 jump a
-`;
+`
 
-level := Level06();
-level.run(answer);
+level := Level06()
+level.run(answer)
