@@ -1,0 +1,45 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level08 extends HRMLevel {
+	/*
+	Year 8 - Tripler Room
+	
+	Objective:
+	Triple each INBOX item by copying to memory
+	and adding it to itself twice.
+	*/
+	
+	func IN() {
+		return [8,4,0,-6]
+	}
+	
+	func FLOOR() {
+		floor := HeapList()
+		floor.put(2, null)
+		return floor
+	}
+	
+	func OUT() {
+		return [24,12,0,-18]
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","jump"]
+	}
+}
+
+var answer =
+`
+a:
+inbox
+copyto 0
+add 0
+add 0
+outbox
+jump a
+`
+
+level := Level08()
+level.run(answer)
