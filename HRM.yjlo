@@ -77,6 +77,8 @@ class HRM {
 					addCommand(cmd, Util.atoi(line.peek().val()))
 				case "add" :
 					addCommand(cmd, Util.atoi(line.peek().val()))
+				case "sub" :
+					addCommand(cmd, Util.atoi(line.peek().val()))
 				default :
 					throw("Invalid command: " + cmd)
 			}
@@ -131,6 +133,8 @@ class HRM {
 					floor.put(current_cmd.value, current)
 				case "add" :
 					current += floor.get(current_cmd.value)
+				case "sub" :
+					current -= floor.get(current_cmd.value)
 			}
 			i++
 		}
