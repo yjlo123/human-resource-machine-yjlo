@@ -1,0 +1,51 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level11 extends HRMLevel {
+	/*
+	Year 11 - Sub Hallway
+	
+	Objective:
+	For each two things in the INBOX, first subtract the 1st
+	from the 2nd and put the result in the OUTBOX. And then,
+	subtract the 2nd from the 1st and put the result in the
+	OUTBOX. Repeat.
+	*/
+	
+	func IN() {
+		return [1,5,6,1,-4,-4,9,0]
+	}
+	
+	func FLOOR() {
+		floor := HeapList()
+		floor.put(2, null)
+		return floor
+	}
+	
+	func OUT() {
+		return [4,-4,-5,5,0,0,-9,9]
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","jump"]
+	}
+}
+
+var answer =
+`
+a:
+inbox
+copyto 0
+inbox
+copyto 1
+sub 0
+outbox
+copyfrom 0
+sub 1
+outbox
+jump a
+`
+
+level := Level11()
+level.run(answer)
