@@ -1,0 +1,53 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level12 extends HRMLevel {
+	/*
+	Year 12 - Tetracontiplier
+	
+	Objective:
+	For each thing in the INBOX, multiply it by 40,
+	and put the result in the OUTBOX.
+	*/
+	
+	func IN() {
+		return [5,-1,1,0]
+	}
+	
+	func FLOOR() {
+		floor := HeapList()
+		floor.put(4, null)
+		return floor
+	}
+	
+	func OUT() {
+		return [200,-40,40,0]
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","jump"]
+	}
+}
+
+var answer =
+`
+a:
+inbox
+copyto 0
+add 0
+add 0
+add 0
+add 0
+copyto 1
+add 1
+add 1
+add 1
+copyto 2
+add 2
+outbox
+jump a
+`
+
+level := Level12()
+level.run(answer)
