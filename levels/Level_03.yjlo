@@ -27,7 +27,7 @@ class Level03 extends HRMLevel {
 	}
 }
 
-var answer =
+solution :=
 `
 copyfrom 4
 outbox
@@ -38,4 +38,4 @@ outbox
 `
 
 level := Level03()
-level.run(answer)
+level.run(solution)

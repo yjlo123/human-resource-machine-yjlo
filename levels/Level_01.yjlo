@@ -28,7 +28,7 @@ class Level01 extends HRMLevel {
 	}
 }
 
-var answer =
+solution :=
 `
 inbox
 outbox
@@ -39,4 +39,4 @@ outbox
 `
 
 level := Level01()
-level.run(answer)
+level.run(solution)

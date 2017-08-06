@@ -30,7 +30,7 @@ class Level12 extends HRMLevel {
 	}
 }
 
-var answer =
+solution :=
 `
 a:
 inbox
@@ -50,4 +50,4 @@ jump a
 `
 
 level := Level12()
-level.run(answer)
+level.run(solution)
