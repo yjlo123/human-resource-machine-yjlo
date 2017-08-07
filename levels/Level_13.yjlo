@@ -1,0 +1,52 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level13 extends HRMLevel {
+	/*
+	Year 13 - Equalization Room
+	
+	Objective:
+	Get two things from the inbox. If they're equal,
+	put one of them in the outbox. Discard non-equal pairs.
+	Repeat!
+	*/
+	
+	func IN() {
+		return [9,4,8,8,1,9,-4,-4]
+	}
+	
+	func FLOOR() {
+		floor := HeapList()
+		floor.put(2, null)
+		return floor
+	}
+	
+	func OUT() {
+		return [8,-4]
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","jump","jumpz"]
+	}
+}
+
+solution :=
+`
+a:
+inbox
+copyto 0
+inbox
+copyto 1
+copyfrom 0
+sub 1
+jumpz b
+jump a
+b:
+copyfrom 0
+outbox
+jump a
+`
+
+level := Level13()
+level.run(solution)
