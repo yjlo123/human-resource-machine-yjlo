@@ -71,6 +71,8 @@ class HRM {
 					addCommand(cmd, line.peek().val())
 				case "jumpz" :
 					addCommand(cmd, line.peek().val())
+				case "jumpn" :
+					addCommand(cmd, line.peek().val())
 				case "copyfrom" :
 					addCommand(cmd, Util.atoi(line.peek().val()))
 				case "copyto" :
@@ -94,7 +96,14 @@ class HRM {
 		var i = 0 // program counter
 		cl = ListUtil.reverse(cl)
 		commands = HeapList(cl)
-
+		
+		func labelCheck(label_i, i, current_cmd_value) {
+			if label_i == null {
+				throw("[" + (i+1) + "] Invalid jump label: "
+					+ current_cmd_value)
+			}
+		}
+		
 		while i < commands.size() {
 			var current_cmd = commands.get(i)
 			switch current_cmd.type {
@@ -108,19 +117,19 @@ class HRM {
 				case "outbox" :
 					out_fun(current)
 				case "jump" :
-					var label_i = map.get(current_cmd.value)
-					if label_i == null {
-						throw("[" + (i+1) + "] Invalid jump label: "
-							+ current_cmd.value)
-					}
+					label_i := map.get(current_cmd.value)
+					labelCheck(label_i, i, current_cmd.value)
 					i = label_i - 1
 				case "jumpz" :
 					if current == 0 {
-						var label_i = map.get(current_cmd.value)
-						if label_i == null {
-							throw("["+(i+1)+"] Invalid jump label"
-								+ current_cmd.value)
-						}
+						label_i := map.get(current_cmd.value)
+						labelCheck(label_i, i, current_cmd.value)
+						i = label_i - 1
+					}
+				case "jumpn" :
+					if current < 0 {
+						label_i := map.get(current_cmd.value)
+						labelCheck(label_i, i, current_cmd.value)
 						i = label_i - 1
 					}
 				case "copyfrom" :
