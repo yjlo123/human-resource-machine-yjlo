@@ -1,6 +1,5 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
-import Math
 
 class Level02 extends HRMLevel {
 	/*
@@ -12,11 +11,7 @@ class Level02 extends HRMLevel {
 	*/
 	
 	func IN() {
-		strings := ["AUTOEXEC", "LOADPROGRAM", "INITIALIZE"]
-		list := HeapList()
-		r := Math.rand($now())
-		list.init(strings)
-		return $string_to_char_list(list.get(r.next() * 1000 % 3))
+		return ['I','N','I','T','I','A','L','I','Z','E']
 	}
 	
 	func OUT() {
@@ -28,6 +23,10 @@ class Level02 extends HRMLevel {
 	}
 }
 
+/*
+	Size:	3/3
+	Speed:	30/25
+*/
 solution :=
 `
 a:

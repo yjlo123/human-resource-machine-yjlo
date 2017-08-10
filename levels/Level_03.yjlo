@@ -27,6 +27,10 @@ class Level03 extends HRMLevel {
 	}
 }
 
+/*
+	Size:	6/6
+	Speed:	6/6
+*/
 solution :=
 `
 copyfrom 4
