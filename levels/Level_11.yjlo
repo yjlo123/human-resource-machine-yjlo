@@ -10,6 +10,8 @@ class Level11 extends HRMLevel {
 	from the 2nd and put the result in the OUTBOX. And then,
 	subtract the 2nd from the 1st and put the result in the
 	OUTBOX. Repeat.
+	You got a new command! SUBtracts the contents of a tile on
+	the floor FROM whatever value you&#39;re currently holding.
 	*/
 	
 	func IN() {
@@ -32,6 +34,10 @@ class Level11 extends HRMLevel {
 	}
 }
 
+/*
+	Size:	10/10
+	Speed:	40/40
+*/
 solution :=
 `
 a:

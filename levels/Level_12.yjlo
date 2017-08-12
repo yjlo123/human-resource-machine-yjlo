@@ -30,6 +30,10 @@ class Level12 extends HRMLevel {
 	}
 }
 
+/*
+	Size:	14/56
+	Speed:	56/56
+*/
 solution :=
 `
 a:
