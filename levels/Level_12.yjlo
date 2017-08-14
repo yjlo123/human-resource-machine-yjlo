@@ -31,7 +31,7 @@ class Level12 extends HRMLevel {
 }
 
 /*
-	Size:	14/56
+	Size:	14/14
 	Speed:	56/56
 */
 solution :=
