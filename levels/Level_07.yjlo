@@ -29,6 +29,10 @@ class Level07 extends HRMLevel {
 	}
 }
 
+/*
+	Size	4/4
+	Speed	24/23 (average 23)
+*/
 solution :=
 `
 a:

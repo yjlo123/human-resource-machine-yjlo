@@ -6,7 +6,7 @@ class Level09 extends HRMLevel {
 	Year 9 - Zero Preservation Initiative
 	
 	Objective:
-	Send only the zeros to the OUTBOX.
+	Send only the ZEROs to the OUTBOX.
 	*/
 	
 	func IN() {
@@ -29,7 +29,11 @@ class Level09 extends HRMLevel {
 	}
 }
 
-solution :=
+/*
+	Size	5/5
+	Speed	28/25
+*/
+solution1 :=
 `
 a:
 inbox
@@ -40,5 +44,20 @@ outbox
 jump a
 `
 
+/*
+	Size	5/5
+	Speed	25/25
+*/
+solution2 :=
+`
+jump b
+a:
+outbox
+b:
+inbox
+jumpz a
+jump b
+`
+
 level := Level09()
-level.run(solution)
+level.run(solution2)

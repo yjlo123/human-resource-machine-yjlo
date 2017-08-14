@@ -30,6 +30,10 @@ class Level10 extends HRMLevel {
 	}
 }
 
+/*
+	Size	9/9
+	Speed	36/36
+*/
 solution :=
 `
 a:
