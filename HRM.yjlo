@@ -143,7 +143,6 @@ class HRM {
 			}
 			if current_cmd.type != "label" {
 				speed++
-				print(current_cmd.type)
 			}
 			i++
 		}
