@@ -71,26 +71,28 @@ class HRMParser {
 		}
 		
 		while !$is_empty(cl) {
-			while !$is_empty(cl) {
-				switch $head(cl) {
-					case ' ' :
-						addWord()
-					case ':' :
-						addWord()
-						word = ':'
-						addWord()
-					case '\n' :
-						addWord()
-						addLine()
-					default:
-						word += $head(cl)
-				}
-				cl = $tail(cl)
+			switch $head(cl) {
+				case ' ' :
+					addWord()
+				case ':' :
+					addWord()
+					word = ':'
+					addWord()
+				case '\n' :
+					addWord()
+					addLine()
+				case '#' :
+					while !$is_empty(cl) && $head(cl) != '\n' {
+						cl = $tail(cl)
+					}
+				default:
+					word += $head(cl)
 			}
-			if word != "" {
-				addWord()
-				addLine()
-			}
+			cl = $tail(cl)
+		}
+		if word != "" {
+			addWord()
+			addLine()
 		}
 		return ListUtil.reverse(lines)
 	}
