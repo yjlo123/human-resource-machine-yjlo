@@ -3,6 +3,7 @@ import ListUtil
 
 class HRMLevel {
 	var inList
+	var hrm
 	
 	func IN() {
 		return []
@@ -33,7 +34,7 @@ class HRMLevel {
 	func EXE(source) {
 		inList = IN()
 		acc := Accumulator()
-		hrm := HRM()
+		hrm = HRM()
 		hrm.parse(source, ALLOWED())
 		hrm.initFloor(FLOOR())
 		hrm.run(inList, acc.add)
@@ -46,5 +47,6 @@ class HRMLevel {
 		print("[ EOUT ]", OUT())
 		print("[ AOUT ]", aout)
 		print("[RESULT]", ListUtil.equal(OUT(), aout) ? "PASS" : "FAIL")
+		print("[ CHLG ] Size: " + hrm.size + " Speed: " + hrm.speed)
 	}
 }
