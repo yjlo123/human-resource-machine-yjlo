@@ -1,23 +1,23 @@
-import HRMLevel from "human-resource-machine-yjlo";
+import HRMLevel from "human-resource-machine-yjlo"
 
 class Sandbox extends HRMLevel {
 
 	func IN() {
-		return [1,2,3];
+		return [1,2,3]
 	}
 	
 	func FLOOR() {
-		floor := HeapList();
-		return floor;
+		floor := HeapList()
+		return floor
 	}
 	
 	func OUT() {
-		return inList;
+		return inList
 	}
 	
 	func ALLOWED() {
 		return ["inbox","outbox","copyfrom","copyto",
-				"add","jump","jumpz"];
+				"add","sub","jump","jumpz","jumpn"]
 	}
 }
 
@@ -27,7 +27,7 @@ a:
 inbox
 outbox
 jump a
-`;
+`
 
-sanbox := Sandbox();
-sanbox.run(program);
+sanbox := Sandbox()
+sanbox.run(program)
