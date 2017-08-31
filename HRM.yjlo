@@ -137,9 +137,13 @@ class HRM {
 				case "sub" :
 					current -= floor.get(current_cmd.value)
 				case "bumpup" :
-					floor.put(current_cmd.value, floor.get(current_cmd.value) + 1)
+					new_value := floor.get(current_cmd.value) + 1;
+					floor.put(current_cmd.value, new_value)
+					current = new_value
 				case "bumpdn" :
-					floor.put(current_cmd.value, floor.get(current_cmd.value) - 1)
+					new_value := floor.get(current_cmd.value) - 1;
+					floor.put(current_cmd.value, new_value)
+					current = new_value
 			}
 			if current_cmd.type != "label" {
 				speed++
