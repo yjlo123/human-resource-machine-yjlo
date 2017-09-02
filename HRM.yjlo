@@ -17,11 +17,13 @@ class HRM {
 		}
 	}
 	
-	var commands // HeapList
-	var cl = [] // command list
-	var map = HashMap() // label map
-	var floor // array
-	var pc = 1 // program counter
+	MAX_STEPS := 1000
+	
+	var commands		// HeapList
+	var cl = []			// command list
+	var map = HashMap()	// label map
+	var floor			// array
+	var pc = 1			// program counter
 	
 	size := 0
 	speed := 0
@@ -147,6 +149,9 @@ class HRM {
 			}
 			if current_cmd.type != "label" {
 				speed++
+				if speed > MAX_STEPS {
+					throw("Steps exceed maximum (" + MAX_STEPS + ").\nInfinite loop may be encountered.")
+				}
 			}
 			i++
 		}
