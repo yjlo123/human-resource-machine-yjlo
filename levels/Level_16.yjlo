@@ -1,0 +1,54 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level16 extends HRMLevel {
+	/*
+	Year 16 - Absolute Positivity
+	
+	Objective:
+	Send each thing from the INBOX to the OUTBOX,
+	BUT, if a number is negative, first remove its
+	negative sign.
+	*/
+	
+	func IN() {
+		return [5,-4,-6,0,-4,9,3]
+	}
+	
+	func FLOOR() {
+		floor := HeapList()
+		floor.put(2, null)
+		return floor
+	}
+	
+	func OUT() {
+		return [5,4,6,0,4,9,3]
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","jump","jumpz","jumpn"]
+	}
+}
+
+/*
+	Size:	8/8
+	Speed:	35/36 (average 34)
+*/
+solution :=
+`
+jump c
+a:
+copyto 0
+sub 0
+sub 0
+b:
+outbox
+c:
+inbox
+jumpn a
+jump b
+`
+
+level := Level16()
+level.run(solution)
