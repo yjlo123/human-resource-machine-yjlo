@@ -1,0 +1,62 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level17 extends HRMLevel {
+	/*
+	Year 17 - Exclusive Lounge
+	
+	Objective:
+	For each TWO things in the INBOX:
+	Send a 0 to the OUTBOX if they have the same sign.
+	(Both positive or both negative.)
+	Send a 1 to the OUTBOX if their signs are different.
+	Repeat until the INBOX is empty.
+	*/
+	
+	func IN() {
+		return [-4,-8,-7,9,5,8,-9,2]
+	}
+	
+	func FLOOR() {
+		floor := HeapList()
+		floor.put(4, 0)
+		floor.put(5, 1)
+		return floor
+	}
+	
+	func OUT() {
+		return [0,1,0,1]
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","jump","jumpz","jumpn"]
+	}
+}
+
+/*
+	Size:	11/12
+	Speed:	27/28 (average 26)
+*/
+solution :=
+`
+jump d
+a:
+inbox
+jumpn e
+b:
+copyfrom 5
+c:
+outbox
+d:
+inbox
+jumpn a
+inbox
+jumpn b
+e:
+copyfrom 4
+jump c
+`
+
+level := Level17()
+level.run(solution)
