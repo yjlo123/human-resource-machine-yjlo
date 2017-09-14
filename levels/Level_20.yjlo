@@ -1,0 +1,63 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level20 extends HRMLevel {
+	/*
+	Year 20 - Multiplication Workshop
+	
+	Objective:
+	For each two things in the INBOX, multiply them, and OUTBOX the result.
+	Don‘t worry about negative numbers for now.
+	
+	You got... LABELS! They can help you remember the purpose of each tile
+	on the floor. Just tap any tile on the floor to edit.
+	*/
+	
+	func IN() {
+		return [6，5，4，4，7，0，0，3，9，6]
+	}
+	
+	func FLOOR() {
+		floor := HeapList()
+		floor.put(9, null)
+		return floor
+	}
+	
+	func OUT() {
+		return [30，16，0，0，54]
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+/*
+	Size:	14/15
+	Speed:	159/109 (average 163)
+*/
+solution :=
+`
+jump b
+a:
+copyfrom 2
+outbox
+b:
+inbox
+copyto 0
+inbox
+copyto 1
+sub 1
+c:
+copyto 2
+bumpdn 1
+jumpn a
+copyfrom 2
+add 0
+jump c
+`
+
+level := Level20()
+level.run(solution)
