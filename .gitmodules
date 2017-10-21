@@ -1,0 +1,3 @@
+[submodule "yjlo-script"]
+	path = yjlo-script
+	url = https://github.com/yjlo123/yjlo-script.git
