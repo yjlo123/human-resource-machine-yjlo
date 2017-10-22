@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>YJLO Script</title>
+		<title>Human Resource Machine</title>
 		<meta charset="UTF-8">
 		
 		<script type="text/javascript" src="config.js"></script>
@@ -62,7 +62,7 @@
 	
 	<body>
 		<div class="ui-layout-north ui-layout-pane ui-layout-pane-north" onmouseover="myLayout.allowOverflow('north')" onmouseout="myLayout.resetOverflow(this)">
-			<div class="tool-label"><span class="version"></span></div>
+			<div class="tool-label"><span id="title" class="version"></span></div>
 
 			<nav id="main-nav" role="navigation">
 				<ul id="main-menu" class="sm sm-clean">
@@ -100,5 +100,13 @@
 		
 		<script type="text/javascript" src="ui/main/main.js"></script>
 		<script type="text/javascript" src="ui/main/layout.js"></script>
+		
+		<script>
+
+$(document).ready(function () {
+	$('#title').text(CONFIG.version);
+});
+
+		</script>
 	</body>
 </html>
