@@ -14,7 +14,7 @@ class Level20 extends HRMLevel {
 	*/
 	
 	func IN() {
-		return [6，5，4，4，7，0，0，3，9，6]
+		return [6,5,4,4,7,0,0,3,9,6]
 	}
 	
 	func FLOOR() {
@@ -24,7 +24,7 @@ class Level20 extends HRMLevel {
 	}
 	
 	func OUT() {
-		return [30，16，0，0，54]
+		return [30,16,0,0,54]
 	}
 	
 	func ALLOWED() {
