@@ -102,10 +102,58 @@
 		
 		<script>
 
-$(document).ready(function () {
-	$('#title').text(CONFIG.version);
-});
+function getCodeUrl(path) {
+	return 'https://raw.githubusercontent.com/yjlo123/human-resource-machine-yjlo/master/' + path;
+}
 
+function getCode(path) {
+	$('#loading-source-icon').show();
+	$.ajax(getCodeUrl(path))
+	.done(function(code) {
+		myCodeMirror.getDoc().setValue(code);
+	})
+	.fail(function() {
+		jqconsole.Write('Loading source failed.\n', 'console-error');
+	})
+	.always(function() {
+		$('#loading-source-icon').hide();
+	});
+}
+
+$(document).ready(function () {
+	$('#title').html('HRM '+CONFIG.version+'<br/>yjlo-script '+version);
+
+	function createList(html_list, arr, path, ul_start, ul_end) {
+		html_list.push(ul_start?'<ul>':'');
+		$.each(arr, function(i, val) {
+			if (val.menu) {
+				html_list.push('<li><a>' + val.title+'</a>');
+				createList(html_list, val.menu, path+val.url+'/', true, true);
+			} else {
+				html_list.push('<li><a onclick="getCode(\''+path+val.url+'\')">' + val.title+'</a>');
+			}
+			html_list.push('</li>');
+		});
+		html_list.push(ul_end?'</ul>':'');
+		return html_list;
+	}
+
+	let example_menu_html = createList([], level_menu_list, 'levels/', true, true);
+	$('#level-menu').append(example_menu_html.join(''));
+	
+});
 		</script>
+		<style>
+		.sm a{
+			cursor: pointer;
+		}
+		.tool-label {
+			padding: 0 10px 0;
+			line-height: 1em;
+		}
+		.version {
+			font-size: 13px !important;
+		}
+		</style>
 	</body>
 </html>
