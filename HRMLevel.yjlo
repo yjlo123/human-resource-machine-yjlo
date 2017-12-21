@@ -1,5 +1,4 @@
 import HRM from "human-resource-machine-yjlo"
-import ListUtil
 
 class HRMLevel {
 	var inList
@@ -24,10 +23,10 @@ class HRMLevel {
 	class Accumulator {
 		var list = []
 		func add(v) {
-			list = $pair(v, list)
+			list = (v, list)
 		}
 		func getList() {
-			return ListUtil.reverse(list)
+			return list.reversed
 		}
 	}
 	
@@ -46,7 +45,7 @@ class HRMLevel {
 		print("[  IN  ]", inList)
 		print("[ EOUT ]", OUT())
 		print("[ AOUT ]", aout)
-		print("[RESULT]", ListUtil.equal(OUT(), aout) ? "PASS" : "FAIL")
+		print("[RESULT]", OUT() == aout ? "PASS" : "FAIL")
 		print("[ CHLG ] Size: " + hrm.size + " Speed: " + hrm.speed)
 	}
 }
