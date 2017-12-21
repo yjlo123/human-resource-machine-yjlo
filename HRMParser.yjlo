@@ -1,5 +1,3 @@
-import ListUtil
-
 class Token {
 	var _value
 	@(v) {
@@ -18,19 +16,19 @@ class HRMParser {
 		var tokens = []
 		@(inversed_l) {
 			for t in inversed_l {
-				tokens = $pair(t, tokens)
+				tokens = (t, tokens)
 			}
 		}
 		func peek() {
-			return $head(tokens)
+			return tokens.head
 		}
 		func pull() {
-			var token = $head(tokens)
-			tokens = $tail(tokens)
+			var token = tokens.head
+			tokens = tokens.tail
 			return token
 		}
 		func isEmpty() {
-			return $is_empty(tokens)
+			return tokens.isEmpty
 		}
 		func toString() {
 			var str = "{"
@@ -51,27 +49,27 @@ class HRMParser {
 	}
 	
 	func parse() {
-		cl := $string_to_char_list(source) // char list
-		while !$is_empty(cl) && ($head(cl) == ' ' || $head(cl) == '\n') {
-			cl = $tail(cl)
+		cl := source.toCharList // char list
+		while !cl.isEmpty && (cl.head == ' ' || cl.head == '\n') {
+			cl = cl.tail
 		}
 		var word = ""
 		var word_l = []
 		var line
 		func addWord() {
 			if word == "" { return }
-			word_l = $pair(Token(word), word_l)
+			word_l = (Token(word), word_l)
 			word = ""
 		}
 		func addLine() {
-			if $is_empty(word_l) { return }
+			if word_l.isEmpty { return }
 			line = _Line(word_l)
-			lines = $pair(line, lines)
+			lines = (line, lines)
 			word_l = []
 		}
 		
-		while !$is_empty(cl) {
-			switch $head(cl) {
+		while !cl.isEmpty {
+			switch cl.head {
 				case ' ' :
 					addWord()
 				case ':' :
@@ -82,18 +80,18 @@ class HRMParser {
 					addWord()
 					addLine()
 				case '#' :
-					while !$is_empty(cl) && $head(cl) != '\n' {
-						cl = $tail(cl)
+					while !cl.isEmpty && cl.head != '\n' {
+						cl = cl.tail
 					}
 				default:
-					word += $head(cl)
+					word += cl.head
 			}
-			cl = $tail(cl)
+			cl = cl.tail
 		}
 		if word != "" {
 			addWord()
 			addLine()
 		}
-		return ListUtil.reverse(lines)
+		return lines.reversed
 	}
 }
