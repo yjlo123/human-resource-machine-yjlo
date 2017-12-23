@@ -1,6 +1,5 @@
 import HRMParser from "human-resource-machine-yjlo"
 import HeapList
-import ListUtil
 import HashMap
 import Util
 
@@ -64,7 +63,7 @@ class HRM {
 				continue
 			}
 
-			if ListUtil.index(allowed, cmd) == -1 {
+			if allowed.index(cmd) == -1 {
 				throw("Invalid command: " + cmd)
 			}
 			switch cmd {
@@ -88,7 +87,7 @@ class HRM {
 	
 	func run(in_list, out_fun) {
 		var i = 0 // program counter
-		cl = ListUtil.reverse(cl)
+		cl = cl.reversed
 		commands = HeapList(cl)
 		
 		func labelCheck(label_i, i, current_cmd_value) {
