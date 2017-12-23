@@ -34,14 +34,14 @@ class HRM {
 		if value != null {
 			cmd.value = value
 		}
-		cl = $pair(cmd, cl)
+		cl = (cmd, cl)
 		pc++
 	}
 	
 	func label(name) {
 		cmd := _Command("label")
 		cmd.value = name
-		cl = $pair(cmd, cl)
+		cl = (cmd, cl)
 		map.put(name, pc)
 		pc++
 	}
@@ -52,13 +52,13 @@ class HRM {
 		P := HRMParser(source)
 		lines := P.parse()
 
-		while !$is_empty(lines) {
+		while !lines.isEmpty {
 			line := lines.head
 			cmd := line.pull().val()
 
 			if !line.isEmpty() && line.peek().val() == ":" {
 				label(cmd)
-				lines = $tail(lines)
+				lines = lines.tail
 				continue
 			}
 
@@ -76,7 +76,7 @@ class HRM {
 					throw("Invalid command: " + cmd)
 			}
 			size++
-			lines = $tail(lines)
+			lines = lines.tail
 		}
 	}
 	
@@ -100,12 +100,12 @@ class HRM {
 			current_cmd := commands.get(i)
 			switch current_cmd.type {
 				case "inbox" :
-					if $is_empty(in_list) {
+					if in_list.isEmpty {
 						// all inputs are processed
 						return
 					}
-					current = $head(in_list)
-					in_list = $tail(in_list)
+					current = in_list.head
+					in_list = in_list.tail
 				case "outbox" :
 					out_fun(current)
 				case "jump" :
