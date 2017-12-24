@@ -5,7 +5,6 @@ class Level06 extends HRMLevel {
 	/*
 	Year 6 - Rainy Summer
 	
-	Objective:
 	For each two things in the INBOX, add them together,
 	and put the result in the OUTBOX.
 	*/

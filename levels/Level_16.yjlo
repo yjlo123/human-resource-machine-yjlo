@@ -5,7 +5,6 @@ class Level16 extends HRMLevel {
 	/*
 	Year 16 - Absolute Positivity
 	
-	Objective:
 	Send each thing from the INBOX to the OUTBOX,
 	BUT, if a number is negative, first remove its
 	negative sign.

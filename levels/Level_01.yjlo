@@ -5,7 +5,6 @@ class Level01 extends HRMLevel {
 	/*
 	Year 1 - Mail Room
 	
-	Objective:
 	Your program should tell your worker to grab each
 	thing from the INBOX, and drop it into the OUTBOX.
 	*/

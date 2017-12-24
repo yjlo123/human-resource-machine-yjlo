@@ -5,7 +5,6 @@ class Level09 extends HRMLevel {
 	/*
 	Year 9 - Zero Preservation Initiative
 	
-	Objective:
 	Send only the ZEROs to the OUTBOX.
 	*/
 	

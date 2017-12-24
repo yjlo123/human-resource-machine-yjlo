@@ -5,7 +5,6 @@ class Level07 extends HRMLevel {
 	/*
 	Year 7 - Zero Exterminator
 	
-	Objective:
 	Send all things that are not zero to the OUTBOX.
 	*/
 	

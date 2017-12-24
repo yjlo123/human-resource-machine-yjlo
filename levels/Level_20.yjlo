@@ -5,7 +5,6 @@ class Level20 extends HRMLevel {
 	/*
 	Year 20 - Multiplication Workshop
 	
-	Objective:
 	For each two things in the INBOX, multiply them, and OUTBOX the result.
 	Don‘t worry about negative numbers for now.
 	

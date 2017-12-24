@@ -5,7 +5,6 @@ class Level13 extends HRMLevel {
 	/*
 	Year 13 - Equalization Room
 	
-	Objective:
 	Get two things from the inbox. If they're equal,
 	put one of them in the outbox. Discard non-equal pairs.
 	Repeat!

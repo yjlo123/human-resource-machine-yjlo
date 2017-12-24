@@ -5,7 +5,6 @@ class Level17 extends HRMLevel {
 	/*
 	Year 17 - Exclusive Lounge
 	
-	Objective:
 	For each TWO things in the INBOX:
 	Send a 0 to the OUTBOX if they have the same sign.
 	(Both positive or both negative.)

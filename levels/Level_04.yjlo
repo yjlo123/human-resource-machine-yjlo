@@ -5,7 +5,6 @@ class Level04 extends HRMLevel {
 	/*
 	Year 4 - Scrambler Handler
 	
-	Objective:
 	Grab the first TWO things from the INBOX and drop them
 	into the OUTBOX in the reverse order. Repeat until the
 	INBOX is empty.

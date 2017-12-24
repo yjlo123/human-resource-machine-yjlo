@@ -5,7 +5,6 @@ class Level08 extends HRMLevel {
 	/*
 	Year 8 - Tripler Room
 	
-	Objective:
 	Triple each INBOX item by copying to memory
 	and adding it to itself twice.
 	*/

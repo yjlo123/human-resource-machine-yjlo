@@ -5,7 +5,6 @@ class Level10 extends HRMLevel {
 	/*
 	Year 10 - Octoplier Suite
 	
-	Objective:
 	For each thing in the INBOX, multiply it by 8,
 	and put the result in the OUTBOX.
 	*/

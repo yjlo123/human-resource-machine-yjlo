@@ -5,7 +5,6 @@ class Level19 extends HRMLevel {
 	/*
 	Year 19 - Countdown
 	
-	Objective:
 	For each number in the INBOX, send that number to the OUTBOX, followed by
 	all numbers down to (or up to) zero. It's a countdown!
 	

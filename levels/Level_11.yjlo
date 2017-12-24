@@ -5,7 +5,6 @@ class Level11 extends HRMLevel {
 	/*
 	Year 11 - Sub Hallway
 	
-	Objective:
 	For each two things in the INBOX, first subtract the 1st
 	from the 2nd and put the result in the OUTBOX. And then,
 	subtract the 2nd from the 1st and put the result in the

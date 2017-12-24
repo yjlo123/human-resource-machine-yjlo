@@ -5,7 +5,6 @@ class Level12 extends HRMLevel {
 	/*
 	Year 12 - Tetracontiplier
 	
-	Objective:
 	For each thing in the INBOX, multiply it by 40,
 	and put the result in the OUTBOX.
 	*/

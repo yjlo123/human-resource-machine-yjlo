@@ -5,7 +5,6 @@ class Level03 extends HRMLevel {
 	/*
 	Year 3 - Mail Room
 	
-	Objective:
 	Ignore the inbox for now, and just send the following
 	3 letters to the OUTBOX: B U G.
 	*/
