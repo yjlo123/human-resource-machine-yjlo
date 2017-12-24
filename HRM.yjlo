@@ -1,12 +1,11 @@
 import HRMParser from "human-resource-machine-yjlo"
-import HeapList
+import ArrayList
 import HashMap
 import Util
 
 class HRM {
 	class _Command {
-		var type
-		var value
+		var type, value
 		@(t) {
 			type = t
 		}
@@ -27,11 +26,11 @@ class HRM {
 	size := 0
 	speed := 0
 	
-	var current = null
+	current := null
 	
 	/* ========== Command functions ========== */
 	func addCommand(command_name, value) {
-		var cmd = _Command(command_name)
+		cmd := _Command(command_name)
 		if value != null {
 			cmd.value = value
 		}
@@ -40,7 +39,7 @@ class HRM {
 	}
 	
 	func label(name) {
-		var cmd = _Command("label")
+		cmd := _Command("label")
 		cmd.value = name
 		cl = $pair(cmd, cl)
 		map.put(name, pc)
@@ -54,8 +53,8 @@ class HRM {
 		lines := P.parse()
 
 		while !$is_empty(lines) {
-			var line = $head(lines)
-			var cmd = line.pull().val()
+			line := lines.head
+			cmd := line.pull().val()
 
 			if !line.isEmpty() && line.peek().val() == ":" {
 				label(cmd)
@@ -86,9 +85,9 @@ class HRM {
 	}
 	
 	func run(in_list, out_fun) {
-		var i = 0 // program counter
+		i := 0 // program counter
 		cl = cl.reversed
-		commands = HeapList(cl)
+		commands = ArrayList(cl)
 		
 		func labelCheck(label_i, i, current_cmd_value) {
 			if label_i == null {
@@ -98,7 +97,7 @@ class HRM {
 		}
 		
 		while i < commands.size() {
-			var current_cmd = commands.get(i)
+			current_cmd := commands.get(i)
 			switch current_cmd.type {
 				case "inbox" :
 					if $is_empty(in_list) {
