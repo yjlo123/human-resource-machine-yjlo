@@ -1,8 +1,7 @@
 import HRM from "human-resource-machine-yjlo"
 
 class HRMLevel {
-	var inList
-	var hrm
+	var inList, hrm
 	
 	func IN() {
 		return []
@@ -21,7 +20,7 @@ class HRMLevel {
 	}
 	
 	class Accumulator {
-		var list = []
+		list := []
 		func add(v) {
 			list = (v, list)
 		}
