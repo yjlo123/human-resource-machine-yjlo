@@ -1,0 +1,39 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level30 extends HRMLevel {
+	/*
+	Year 30 - String Storage Floor
+	
+	Each thing in the INBOX is an address of a tile on the floor.
+	For each address provided in the INBOX, OUTBOX the requested
+	item from the floor and ALL FOLLOWING items on the floor until
+	you reach a ZERO. Repeat!
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level30()
+level.run(solution)

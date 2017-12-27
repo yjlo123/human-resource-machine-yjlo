@@ -1,0 +1,40 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level26 extends HRMLevel {
+	/*
+	Year 26 - Small Divide
+	
+	For each two things in the INBOX, how many times does
+	the second fully fit into the first? Don't worry about
+	negative numbers, divide by zero, or remainders.
+	Self improvement tip: This might be a good time to practice
+	copying and pasting from a previous assignment!
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level26()
+level.run(solution)

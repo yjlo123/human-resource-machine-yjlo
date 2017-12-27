@@ -1,0 +1,42 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level29 extends HRMLevel {
+	/*
+	Year 29 - Storage Floor
+	
+	Imagine each thing in the INBOX is an address. And each
+	address refers to a tile 0-9 on the floor.
+	Your task: For each address in the INBOX, pick up the letter
+	at that address and OUTBOX it.
+	Congratulations! You can now access tiles on the floor INDIRECTLY!
+	Observe this example to see how it works,
+	compared to what you've been doing so far:
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level29()
+level.run(solution)
