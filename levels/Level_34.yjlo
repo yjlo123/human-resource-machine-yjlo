@@ -1,0 +1,36 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level34 extends HRMLevel {
+	/*
+	Year 34 - Vowel Incinerator
+	
+	Send everything from the INBOX to the OUTBOX, except the vowels.
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level34()
+level.run(solution)

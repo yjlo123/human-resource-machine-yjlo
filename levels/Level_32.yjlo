@@ -1,0 +1,37 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level32 extends HRMLevel {
+	/*
+	Year 32 - Inventory Report
+	
+	For each thing in the INBOX, send to the OUTBOX
+	the total number of matching items on the FLOOR.
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level32()
+level.run(solution)
