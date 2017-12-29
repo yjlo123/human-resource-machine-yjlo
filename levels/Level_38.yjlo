@@ -1,0 +1,37 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level38 extends HRMLevel {
+	/*
+	Year 38 - Digit Exploder
+	
+	Grab each number from the INBOX, and send its digits
+	to the OUTBOX. For example, 123 becomes 1, 2, 3.
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level38()
+level.run(solution)

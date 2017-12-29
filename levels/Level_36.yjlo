@@ -1,0 +1,38 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level36 extends HRMLevel {
+	/*
+	Year 36 - Alphabetizer
+	
+	The INBOX contains exactly two words. Determine which word
+	comes first, if you were to order them alphabetically,
+	and send only that word to the OUTBOX.
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level36()
+level.run(solution)

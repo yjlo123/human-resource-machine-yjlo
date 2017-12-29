@@ -1,0 +1,37 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level40 extends HRMLevel {
+	/*
+	Year 40 - Prime Factory
+	
+	For each thing in the INBOX, send its PRIME FACTORS to the
+	OUTBOX in order from smallest to largest.
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level40()
+level.run(solution)

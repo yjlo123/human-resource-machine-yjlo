@@ -1,0 +1,38 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level41 extends HRMLevel {
+	/*
+	Year 41 - Sorting Floor
+	
+	For each zero terminated string in the INBOX, SORT the
+	contents of the string, smallest first, biggest last,
+	and put the results in the OUTBOX. Repeat for each string!
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level41()
+level.run(solution)

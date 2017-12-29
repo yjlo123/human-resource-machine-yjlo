@@ -1,0 +1,40 @@
+import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
+
+class Level39 extends HRMLevel {
+	/*
+	Year 39 - Re-Coordinator
+	
+	Each number in the INBOX is an address of a tile on the floor.
+	Send to the OUTBOX the coordinates of that tile, column first,
+	row second.
+	For example, an address of 6 has coordinates 2, 1. You may ask
+	your boss for more examples.
+	*/
+	
+	func IN() {
+		return []
+	}
+	
+	func FLOOR() {
+		return null
+	}
+	
+	func OUT() {
+		return []
+	}
+	
+	func ALLOWED() {
+		return ["inbox","outbox","copyfrom","copyto",
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
+	}
+}
+
+solution :=
+`
+
+`
+
+level := Level39()
+level.run(solution)
