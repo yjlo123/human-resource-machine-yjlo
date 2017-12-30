@@ -13,15 +13,17 @@ class Level21 extends HRMLevel {
 	*/
 	
 	func IN() {
-		return []
+		return [8,2,0,5,-4,7,0,0,0,8,-3,7,4,-8,7,0]
 	}
 	
 	func FLOOR() {
-		return null
+		floor := HeapList()
+		floor.put(5, 0)
+		return floor
 	}
 	
 	func OUT() {
-		return []
+		return [10,8,0,0,15]
 	}
 	
 	func ALLOWED() {
@@ -33,7 +35,18 @@ class Level21 extends HRMLevel {
 
 solution :=
 `
-
+jump b
+a:
+copyfrom 0
+outbox
+b:
+copyfrom 5
+c:
+copyto 0
+inbox
+jumpz a
+add 0
+jump c
 `
 
 level := Level21()
