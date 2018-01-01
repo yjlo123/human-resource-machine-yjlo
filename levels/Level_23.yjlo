@@ -6,21 +6,23 @@ class Level23 extends HRMLevel {
 	Year 23 - The Littlest Number
 	
 	For each zero terminated string in the INBOX, send to the OUTBOX
-	only the SMALLEST number you&#39;ve seen in that string.
+	only the SMALLEST number you've seen in that string.
 	You will never be given an empty string. Reset and repeat for each string.
 	What's a "zero terminated string"? Go ask your boss on the previous floor!
 	*/
 	
 	func IN() {
-		return []
+		return [9,12,1,0,14,15,9,3,0,86,56,76,31,49,0]
 	}
 	
 	func FLOOR() {
-		return null
+		floor := HeapList()
+		floor.put(9, null)
+		return floor
 	}
 	
 	func OUT() {
-		return []
+		return [1,3,31]
 	}
 	
 	func ALLOWED() {
@@ -32,7 +34,23 @@ class Level23 extends HRMLevel {
 
 solution :=
 `
-
+jump b
+a:
+copyfrom 0
+outbox
+b:
+inbox
+jump d
+c:
+add 0
+d:
+copyto 0
+e:
+inbox
+jumpz a
+sub 0
+jumpn c
+jump e
 `
 
 level := Level23()
