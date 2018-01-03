@@ -15,6 +15,8 @@ class HRM {
 		}
 	}
 	
+	DEBUG := false
+	
 	MAX_STEPS := 1000
 	
 	var commands		// HeapList
@@ -98,6 +100,12 @@ class HRM {
 		
 		while i < commands.size() {
 			current_cmd := commands.get(i)
+			
+			if DEBUG {
+				print("[" + speed + "] " + current_cmd.toString())
+			}
+
+			
 			switch current_cmd.type {
 				case "inbox" :
 					if in_list.isEmpty {

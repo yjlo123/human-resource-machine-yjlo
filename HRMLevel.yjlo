@@ -3,6 +3,8 @@ import HRM from "human-resource-machine-yjlo"
 class HRMLevel {
 	var inList, hrm
 	
+	DEBUG := false
+	
 	func IN() {
 		return []
 	}
@@ -33,6 +35,7 @@ class HRMLevel {
 		inList = IN()
 		acc := Accumulator()
 		hrm = HRM()
+		hrm.DEBUG = this.DEBUG
 		hrm.parse(source, ALLOWED())
 		hrm.initFloor(FLOOR())
 		hrm.run(inList, acc.add)
