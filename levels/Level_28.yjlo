@@ -33,37 +33,37 @@ class Level28 extends HRMLevel {
 solution :=
 `
 a:
-inbox
-copyto   0
-inbox   
-copyto   2
-inbox
+ inbox
+ copyto   0
+ inbox
+ copyto   2
+ inbox
 b:
-copyto   1
-sub      2
-jumpn    c
-copyto   1
-add      2
-copyto   2
-sub      1
-copyto   1
+ copyto   1
+ sub      2
+ jumpn    c
+ copyto   1
+ add      2
+ copyto   2
+ sub      1
+ copyto   1
 c:
-copyfrom 1
-sub      0
-jumpn    d
-copyfrom 0
-outbox
-copyfrom 1
-outbox
-copyfrom 2
-outbox
-jump     a
+ copyfrom 1
+ sub      0
+ jumpn    d
+ copyfrom 0
+ outbox
+ copyfrom 1
+ outbox
+ copyfrom 2
+ outbox
+ jump     a
 d:
-copyto   1
-add      0
-copyto   0
-sub      1
-jump     b
+ copyto   1
+ add      0
+ copyto   0
+ sub      1
+ jump     b
 `
 
 level := Level28()

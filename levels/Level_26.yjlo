@@ -35,24 +35,24 @@ class Level26 extends HRMLevel {
 
 solution :=
 `
-jump     b
+ jump     b
 a:
-copyfrom 8
-outbox
+ copyfrom 8
+ outbox
 b:
-inbox
-copyto   0
-inbox
-copyto   1
-copyfrom 9
-copyto   8
+ inbox
+ copyto   0
+ inbox
+ copyto   1
+ copyfrom 9
+ copyto   8
 c:
-copyfrom 0
-sub      1
-jumpn    a
-copyto   0
-bumpup   8
-jump     c
+ copyfrom 0
+ sub      1
+ jumpn    a
+ copyto   0
+ bumpup   8
+ jump     c
 `
 
 level := Level26()

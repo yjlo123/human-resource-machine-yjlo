@@ -41,19 +41,19 @@ class Level19 extends HRMLevel {
 solution :=
 `
 a:
-inbox
-copyto 0
-jump   c
+ inbox
+ copyto 0
+ jump   c
 b:
-outbox
+  outbox
 bumpup 0
 c:
-jumpn  b
+ jumpn  b
 d:
-outbox
-bumpdn 0
-jumpn  a
-jump   d
+ outbox
+ bumpdn 0
+ jumpn  a
+ jump   d
 `
 
 level := Level19()

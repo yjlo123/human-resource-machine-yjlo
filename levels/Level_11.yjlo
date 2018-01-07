@@ -40,16 +40,16 @@ class Level11 extends HRMLevel {
 solution :=
 `
 a:
-inbox
-copyto   0
-inbox
-copyto   1
-sub      0
-outbox
-copyfrom 0
-sub      1
-outbox
-jump     a
+ inbox
+ copyto   0
+ inbox
+ copyto   1
+ sub      0
+ outbox
+ copyfrom 0
+ sub      1
+ outbox
+ jump     a
 `
 
 level := Level11()

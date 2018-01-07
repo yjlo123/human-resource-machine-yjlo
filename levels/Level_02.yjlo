@@ -28,9 +28,9 @@ class Level02 extends HRMLevel {
 solution :=
 `
 a:
-inbox
-outbox
-jump   a
+ inbox
+ outbox
+ jump   a
 `
 
 level := Level02()

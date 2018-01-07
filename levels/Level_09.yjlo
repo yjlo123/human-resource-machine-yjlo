@@ -35,12 +35,12 @@ class Level09 extends HRMLevel {
 solution1 :=
 `
 a:
-inbox
-jumpz b
-jump  a
+ inbox
+ jumpz b
+ jump  a
 b:
-outbox
-jump  a
+ outbox
+ jump  a
 `
 
 /*
