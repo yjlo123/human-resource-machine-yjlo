@@ -1,5 +1,4 @@
 import HRMLevel from "human-resource-machine-yjlo"
-import HeapList
 
 class Level02 extends HRMLevel {
 	/*
