@@ -46,7 +46,7 @@ d:
 copyto 0
 bumpdn 1
 jumpz a
-add
+add 0
 jump d
 `
 
