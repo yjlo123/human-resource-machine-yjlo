@@ -35,23 +35,23 @@ class Level22 extends HRMLevel {
 
 solution :=
 `
-bumpup 9
+bumpup   9
 a:
 inbox
-copyto 8
+copyto   8
 copyfrom 9
-copyto 3
+copyto   3
 b:
-copyto 4
+copyto   4
 outbox
 copyfrom 8
-sub 3
-jumpn a
+sub      3
+jumpn    a
 copyfrom 3
-add 4
-copyto 3
-sub 4
-jump b
+add      4
+copyto   3
+sub      4
+jump     b
 `
 
 level := Level22()

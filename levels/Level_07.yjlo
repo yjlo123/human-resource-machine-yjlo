@@ -36,9 +36,9 @@ solution :=
 `
 a:
 inbox
-jumpz a
+jumpz  a
 outbox
-jump a
+jump   a
 `
 
 level := Level07()

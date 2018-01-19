@@ -30,7 +30,7 @@ solution :=
 a:
 inbox
 outbox
-jump a
+jump   a
 `
 
 level := Level02()

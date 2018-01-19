@@ -41,15 +41,15 @@ solution :=
 `
 a:
 inbox
-copyto 0
+copyto   0
 inbox
-copyto 1
-sub 0
+copyto   1
+sub      0
 outbox
 copyfrom 0
-sub 1
+sub      1
 outbox
-jump a
+jump     a
 `
 
 level := Level11()

@@ -38,10 +38,10 @@ solution :=
 a:
 inbox
 copyto 0
-add 0
-add 0
+add    0
+add    0
 outbox
-jump a
+jump   a
 `
 
 level := Level08()

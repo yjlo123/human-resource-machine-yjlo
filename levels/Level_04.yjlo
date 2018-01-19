@@ -38,12 +38,12 @@ solution :=
 `
 a:
 inbox
-copyto 0
+copyto   0
 inbox
 outbox
 copyfrom 0
 outbox
-jump a
+jump     a
 `
 
 level := Level04()

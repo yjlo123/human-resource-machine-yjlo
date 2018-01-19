@@ -37,10 +37,10 @@ solution1 :=
 a:
 inbox
 jumpz b
-jump a
+jump  a
 b:
 outbox
-jump a
+jump  a
 `
 
 /*
@@ -49,13 +49,13 @@ jump a
 */
 solution2 :=
 `
-jump b
+jump  b
 a:
 outbox
 b:
 inbox
 jumpz a
-jump b
+jump  b
 `
 
 level := Level09()

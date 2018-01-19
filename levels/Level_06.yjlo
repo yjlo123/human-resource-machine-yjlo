@@ -39,9 +39,9 @@ a:
 inbox
 copyto 0
 inbox
-add 0
+add    0
 outbox
-jump a
+jump   a
 `
 
 level := Level06()

@@ -39,22 +39,22 @@ class Level17 extends HRMLevel {
 */
 solution :=
 `
-jump d
+jump     d
 a:
 inbox
-jumpn e
+jumpn    e
 b:
 copyfrom 5
 c:
 outbox
 d:
 inbox
-jumpn a
+jumpn    a
 inbox
-jumpn b
+jumpn    b
 e:
 copyfrom 4
-jump c
+jump     c
 `
 
 level := Level17()
