@@ -95,7 +95,7 @@ class HRM {
 	func getTargetFloorNumber(cmd) {
 		index := cmd.value
 		if cmd.option != null {
-			index = floor.get(cmd.value)
+			index = floor.get(index)
 		}
 		return index
 	}
@@ -159,7 +159,12 @@ class HRM {
 					current += floor.get(target)
 				case "sub" :
 					target := getTargetFloorNumber(current_cmd)
-					current -= floor.get(target)
+					floor_value := floor.get(target)
+					if current.isString && floor_value.isString {
+						current = current.charCode - floor_value.charCode
+					} else {
+						current -= floor_value
+					}
 				case "bumpup" :
 					target := getTargetFloorNumber(current_cmd)
 					new_value := floor.get(target) + 1;
