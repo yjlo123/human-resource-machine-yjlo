@@ -10,15 +10,20 @@ class Level32 extends HRMLevel {
 	*/
 	
 	func IN() {
-		return []
+		return ["B","X","C","A"]
 	}
 	
 	func FLOOR() {
-		return null
+		arr := ["B","A","X","B","C",
+				"X","A","B","A","X",
+				"C","B","A","B",0,]
+		floor := HeapList(arr)
+		floor.put(19, null)
+		return floor
 	}
 	
 	func OUT() {
-		return []
+		return [5,3,2,4]
 	}
 	
 	func ALLOWED() {
@@ -30,7 +35,31 @@ class Level32 extends HRMLevel {
 
 solution :=
 `
+# 15: count
+# 16: item
+# 17: index
 
+ jump     b
+a:
+ copyfrom 15
+ outbox
+b:
+ inbox
+ copyto   16
+ copyfrom 14
+ copyto   15
+ copyto   17
+ jump     e
+c:
+ bumpup   15
+d:
+ bumpup   17
+e:
+ copyfrom [17]
+ jumpz    a
+ sub      16
+ jumpz    c
+ jump     d
 `
 
 level := Level32()
