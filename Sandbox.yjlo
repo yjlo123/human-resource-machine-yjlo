@@ -1,6 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
+import HeapList
 
-class Sandbox extends HRMLevel {
+class Sandbox (HRMLevel) {
 
 	func IN() {
 		return [1,2,3]
@@ -8,6 +9,7 @@ class Sandbox extends HRMLevel {
 	
 	func FLOOR() {
 		floor := HeapList()
+		floor.put(15, null)
 		return floor
 	}
 	
@@ -17,11 +19,12 @@ class Sandbox extends HRMLevel {
 	
 	func ALLOWED() {
 		return ["inbox","outbox","copyfrom","copyto",
-				"add","sub","jump","jumpz","jumpn"]
+				"add","sub","bumpup","bumpdn","jump",
+				"jumpz","jumpn"]
 	}
 }
 
-var program =
+solution :=
 `
 a:
 inbox
@@ -30,4 +33,4 @@ jump a
 `
 
 sanbox := Sandbox()
-sanbox.run(program)
+sanbox.run(solution)
