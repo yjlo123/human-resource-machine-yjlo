@@ -19,9 +19,9 @@ class HRM {
 		}
 	}
 	
-	DEBUG := false
-	
-	MAX_STEPS := 1000
+	/* level defined var */
+	DEBUG := null
+	MAX_STEPS := null
 	
 	var commands		// HeapList
 	var cl = []			// command list
@@ -179,7 +179,8 @@ class HRM {
 			if current_cmd.type != "label" {
 				speed++
 				if speed > MAX_STEPS {
-					throw("Steps exceed maximum (" + MAX_STEPS + ").\nInfinite loop may be encountered.")
+					print("Steps exceed maximum (" + MAX_STEPS + ").\nInfinite loop may be encountered.")
+					break
 				}
 			}
 			i++

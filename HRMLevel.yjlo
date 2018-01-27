@@ -4,6 +4,7 @@ class HRMLevel {
 	var inList, hrm
 	
 	DEBUG := false
+	MAX_STEPS := 1000
 	
 	func IN() {
 		return []
@@ -36,6 +37,7 @@ class HRMLevel {
 		acc := Accumulator()
 		hrm = HRM()
 		hrm.DEBUG = this.DEBUG
+		hrm.MAX_STEPS = this.MAX_STEPS
 		hrm.parse(source, ALLOWED())
 		hrm.initFloor(FLOOR())
 		hrm.run(inList, acc.add)
