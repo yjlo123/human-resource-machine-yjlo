@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level16 extends HRMLevel {
+class Level16 (HRMLevel) {
 	/*
 	Year 16 - Absolute Positivity
 	

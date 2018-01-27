@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level35 extends HRMLevel {
+class Level35 (HRMLevel) {
 	/*
 	Year 35 - Duplicate Removal
 	

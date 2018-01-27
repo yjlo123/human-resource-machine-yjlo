@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level11 extends HRMLevel {
+class Level11 (HRMLevel) {
 	/*
 	Year 11 - Sub Hallway
 	

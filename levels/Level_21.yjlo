@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level21 extends HRMLevel {
+class Level21 (HRMLevel) {
 	/*
 	Year 21 - Zero Terminated Sum
 	

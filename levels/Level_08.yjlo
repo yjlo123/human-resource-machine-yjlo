@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level08 extends HRMLevel {
+class Level08 (HRMLevel) {
 	/*
 	Year 8 - Tripler Room
 	

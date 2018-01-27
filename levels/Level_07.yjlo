@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level07 extends HRMLevel {
+class Level07 (HRMLevel) {
 	/*
 	Year 7 - Zero Exterminator
 	

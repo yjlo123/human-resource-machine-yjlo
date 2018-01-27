@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level23 extends HRMLevel {
+class Level23 (HRMLevel) {
 	/*
 	Year 23 - The Littlest Number
 	

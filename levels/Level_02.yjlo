@@ -1,6 +1,6 @@
 import HRMLevel from "human-resource-machine-yjlo"
 
-class Level02 extends HRMLevel {
+class Level02 (HRMLevel) {
 	/*
 	Year 2 - Busy Mail Room
 	

@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level10 extends HRMLevel {
+class Level10 (HRMLevel) {
 	/*
 	Year 10 - Octoplier Suite
 	

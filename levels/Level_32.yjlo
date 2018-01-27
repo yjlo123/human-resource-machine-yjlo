@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level32 extends HRMLevel {
+class Level32 (HRMLevel) {
 	/*
 	Year 32 - Inventory Report
 	

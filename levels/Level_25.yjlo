@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level25 extends HRMLevel {
+class Level25 (HRMLevel) {
 	/*
 	Year 25 - Cumulative Countdown
 	

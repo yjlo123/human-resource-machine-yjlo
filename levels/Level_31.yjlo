@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level31 extends HRMLevel {
+class Level31 (HRMLevel) {
 	/*
 	Year 31 - String Reverse
 	

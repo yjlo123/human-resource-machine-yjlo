@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level24 extends HRMLevel {
+class Level24 (HRMLevel) {
 	/*
 	Year 24 - Mod Module
 	

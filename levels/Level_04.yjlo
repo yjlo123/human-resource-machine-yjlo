@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level04 extends HRMLevel {
+class Level04 (HRMLevel) {
 	/*
 	Year 4 - Scrambler Handler
 	

@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level34 extends HRMLevel {
+class Level34 (HRMLevel) {
 	/*
 	Year 34 - Vowel Incinerator
 	
