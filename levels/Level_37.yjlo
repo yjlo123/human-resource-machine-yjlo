@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level37 extends HRMLevel {
+class Level37 (HRMLevel) {
 	/*
 	Year 37 - Scavenger Chain
 	
@@ -15,15 +15,21 @@ class Level37 extends HRMLevel {
 	*/
 	
 	func IN() {
-		return []
+		return [0,23]
 	}
 	
 	func FLOOR() {
-		return null
+		arr := ["E",13,null,"C",23,
+				null,null,null,null,null,
+				"P",20,null,"S",3,
+				null,null,null,null,null,
+				"E",-1,null,"A",10,]
+		floor := HeapList(arr)
+		return floor
 	}
 	
 	func OUT() {
-		return []
+		return ["E","S","C","A","P","E","A","P","E"]
 	}
 	
 	func ALLOWED() {
@@ -35,7 +41,16 @@ class Level37 extends HRMLevel {
 
 solution :=
 `
-
+a:
+ inbox   
+b:
+ copyto   22
+ copyfrom [22]
+ outbox  
+ bumpup   22
+ copyfrom [22]
+ jumpn    a
+ jump     b
 `
 
 level := Level37()
