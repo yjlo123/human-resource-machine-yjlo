@@ -1,7 +1,7 @@
 import HRMLevel from "human-resource-machine-yjlo"
 import HeapList
 
-class Level38 extends HRMLevel {
+class Level38 (HRMLevel) {
 	/*
 	Year 38 - Digit Exploder
 	
@@ -10,15 +10,19 @@ class Level38 extends HRMLevel {
 	*/
 	
 	func IN() {
-		return []
+		return [86,7,535,395]
 	}
 	
 	func FLOOR() {
-		return null
+		floor := HeapList()
+		floor.put(9, 0)
+		floor.put(10, 10)
+		floor.put(11, 100)
+		return floor
 	}
 	
 	func OUT() {
-		return []
+		return [8,6,7,5,3,5,3,9,5]
 	}
 	
 	func ALLOWED() {
@@ -30,7 +34,57 @@ class Level38 extends HRMLevel {
 
 solution :=
 `
-
+ copyfrom 11
+ add      11
+ copyto   8
+ copyfrom 10
+ add      10
+ copyto   7
+a:
+ inbox   
+ copyto   0
+ sub      10
+ jumpn    h
+ copyfrom 9
+ copyto   1
+ copyto   2
+b:
+ copyfrom 0
+ sub      8
+ jumpn    c
+ copyto   0
+ bumpup   2
+ bumpup   2
+ jump     b
+c:
+ add      11
+ jumpn    d
+ copyto   0
+ bumpup   2
+d:
+ copyfrom 0
+ sub      7
+ jumpn    e
+ copyto   0
+ bumpup   1
+ bumpup   1
+ jump     d
+e:
+ add      10
+ jumpn    f
+ copyto   0
+ bumpup   1
+f:
+ copyfrom 2
+ jumpz    g
+ outbox  
+g:
+ copyfrom 1
+ outbox  
+h:
+ copyfrom 0
+ outbox  
+ jump     a
 `
 
 level := Level38()
