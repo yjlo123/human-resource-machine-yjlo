@@ -9,7 +9,7 @@ class Sandbox (HRMLevel) {
 	
 	func FLOOR() {
 		floor := HeapList()
-		floor.put(15, null)
+		floor.put(3, null)
 		return floor
 	}
 	
@@ -27,9 +27,9 @@ class Sandbox (HRMLevel) {
 solution :=
 `
 a:
-inbox
-outbox
-jump a
+ inbox
+ outbox
+ jump a
 `
 
 sanbox := Sandbox()
