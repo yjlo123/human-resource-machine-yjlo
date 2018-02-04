@@ -110,7 +110,71 @@ level_menu_list_1 = [
 		"title":"Level 25 Cumulative Countdown"
 	},
 	{
-		"url":"",
-		"title":"[To be continued]"
+		"url":"Level_26.yjlo",
+		"title":"Level 26  Small Divide"
+	},
+	{
+		"url":"Level_27.yjlo",
+		"title":"Level 27 Midnight Petroleum (story)"
+	},
+	{
+		"url":"Level_28.yjlo",
+		"title":"Level 28 Three Sort"
+	},
+	{
+		"url":"Level_29.yjlo",
+		"title":"Level 29 Storage Floor"
+	},
+	{
+		"url":"Level_30.yjlo",
+		"title":"Level 30 String Storage Floor"
+	},
+	{
+		"url":"Level_31.yjlo",
+		"title":"Level 31 String Reverse"
+	},
+	{
+		"url":"Level_32.yjlo",
+		"title":"Level 32 Inventory Report"
+	},
+	{
+		"url":"Level_33.yjlo",
+		"title":"Level 33 Where's Carol? (story)"
+	},
+	{
+		"url":"Level_34.yjlo",
+		"title":"Level 34 Vowel Incinerator"
+	},
+	{
+		"url":"Level_35.yjlo",
+		"title":"Level 35 Duplicate Removal"
+	},
+	{
+		"url":"Level_36.yjlo",
+		"title":"Level 36 Alphabetizer"
+	},
+	{
+		"url":"Level_37.yjlo",
+		"title":"Level 37 Scavenger Chain"
+	},
+	{
+		"url":"Level_38.yjlo",
+		"title":"Level 38 Digit Exploder"
+	},
+	{
+		"url":"Level_39.yjlo",
+		"title":"Level 39 Re-Coordinator"
+	},
+	{
+		"url":"Level_40.yjlo",
+		"title":"Level 40 Prime Factory"
+	},
+	{
+		"url":"Level_41.yjlo",
+		"title":"Level 41 Sorting Floor"
+	},
+	{
+		"url":"Level_42.yjlo",
+		"title":"Level 42 End Program. Congratulations. (story)"
 	}
  ];
