@@ -66,7 +66,8 @@
 
 			<nav id="main-nav" role="navigation">
 				<ul id="main-menu" class="sm sm-clean">
-					<li><a href="https://github.com/yjlo123/yjlo-script/wiki" target="_blank">Documentation</a></li>
+					<li><a href="https://github.com/yjlo123/yjlo-script/wiki" target="_blank">Doc</a></li>
+					<li id="source-menu" ><a>Source</a></li>
 					<li id="level-menu-1" ><a>Level 1-20</a></li>
 					<li id="level-menu-2" ><a>Level 20-42</a></li>
 					</ul>
@@ -139,6 +140,9 @@ $(document).ready(function () {
 		return html_list;
 	}
 
+	let source_menu = createList([], source_code, '', true, true);
+	$('#source-menu').append(source_menu.join(''));
+	
 	let example_menu_html_1 = createList([], level_menu_list_1, 'levels/', true, true);
 	$('#level-menu-1').append(example_menu_html_1.join(''));
 	
