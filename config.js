@@ -5,6 +5,21 @@ CONFIG = {
 	}
 };
 
+source_code = [
+	{
+		"url":"HRMParser.yjlo",
+		"title":"HRMParser.yjlo"
+	},
+	{
+		"url":"HRM.yjlo",
+		"title":"HRM.yjlo"
+	},
+	{
+		"url":"HRMLevel.yjlo",
+		"title":"HRMLevel.yjlo"
+	}
+];
+
 level_menu_list_1 = [
 	{
 		"url":"Level_01.yjlo",
